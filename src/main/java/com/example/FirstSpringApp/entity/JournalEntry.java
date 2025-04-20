@@ -10,11 +10,13 @@ import java.util.*;
 
 @Document(collection = "journal_entries")
 @Data
+@NoArgsConstructor
 
 public class JournalEntry
 {
     @Id
     private ObjectId id;
+    @NonNull
     private String title;
     private LocalDateTime date;
     private String content;
