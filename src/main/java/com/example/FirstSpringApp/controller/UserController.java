@@ -12,8 +12,6 @@ import com.example.FirstSpringApp.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 
 
-
-import java.time.LocalDateTime;
 import java.util.*;
 
 @RestController
@@ -36,7 +34,7 @@ public class UserController {
     {
         try
         {
-            userService.saveEntry(user);
+            userService.saveNewUser(user);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -50,7 +48,7 @@ public class UserController {
        User userInDb = userService.findByUserName(userName);
            userInDb.setUserName(user.getUserName());
            userInDb.setPassword(user.getPassword());
-           userService.saveEntry(userInDb);
+           userService.saveNewUser(userInDb);
 
        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

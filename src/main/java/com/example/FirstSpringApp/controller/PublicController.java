@@ -3,7 +3,6 @@ package com.example.FirstSpringApp.controller;
 import com.example.FirstSpringApp.service.UserService;
 import com.example.FirstSpringApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,8 +17,8 @@ public class PublicController {
     }
 
     @PostMapping("/create-user")
-    public void createUsear(@RequestBody User user)
+    public void createUser(@RequestBody User user)
     {
-        userService.saveEntry(user);
+        userService.saveNewUser(user);
     }
 }
