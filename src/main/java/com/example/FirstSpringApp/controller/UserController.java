@@ -28,7 +28,12 @@ public class UserController {
     @PostMapping
     public void createUser(@RequestBody User user)
     {
-        userService.saveEntry(user);
+        try
+        {
+            userService.saveEntry(user);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @PutMapping("/{userName}")
